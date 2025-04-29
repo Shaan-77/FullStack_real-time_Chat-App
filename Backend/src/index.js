@@ -7,6 +7,7 @@ import messageRoutes from "./Routes/message.route.js";
 import cors from "cors";
 import { app, server } from "./lib/socket.js";
 import path from "path";
+import fs from "fs";
 
 dotenv.config(".env");
 const PORT = process.env.PORT;
