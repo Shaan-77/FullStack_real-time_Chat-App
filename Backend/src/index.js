@@ -5,22 +5,17 @@ import { connectDB } from "../src/lib/db.js";
 import cookieParser from "cookie-parser";
 import messageRoutes from "./Routes/message.route.js";
 import cors from "cors";
-import { initSocket } from "./lib/socket.js";
-import http from "http";
+import { app, server } from "./lib/socket.js";
 import path from "path";
 
 dotenv.config(".env");
 const PORT = process.env.PORT;
-
-const app = express();
-const server = http.createServer(app);
-initSocket(server); // ab socket server properly init hoga
-
 const __dirname = path.resolve();
 
 app.use(
   cors({
     origin: ["http://localhost:5173", "http://localhost:5174"],
+
     credentials: true,
   })
 );
